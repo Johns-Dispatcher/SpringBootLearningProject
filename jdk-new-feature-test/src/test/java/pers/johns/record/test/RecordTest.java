@@ -82,4 +82,20 @@ public class RecordTest {
         SaleRecord car = new SaleRecord(1001, "Car");
         System.out.println(car);
     }
+
+    /**
+     * 测试嵌套格式的Record
+     */
+    @Test
+    public void testNestedRecord() {
+        record Address(String city, String address){};
+        record Phone(String phoneNumber){};
+        record Person(String name, Address address, Phone phone){}
+
+        System.out.println(new Person(
+                "John",
+                new Address("Liaoning", "1-1-1"),
+                new Phone("114514")
+        ));
+    }
 }
