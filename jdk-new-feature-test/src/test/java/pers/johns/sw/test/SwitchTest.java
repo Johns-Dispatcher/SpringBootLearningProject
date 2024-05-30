@@ -16,6 +16,9 @@ public class SwitchTest {
 
     private static final Random random = new Random();
 
+    /**
+     * 测试Switch箭头表达式
+     */
     @Test
     public void testArrow() {
         int dow = SwitchTest.random.nextInt()%10;
@@ -26,6 +29,9 @@ public class SwitchTest {
         }
     }
 
+    /**
+     * 测试yield返回值
+     */
     @Test
     public void testYield() {
         int dow = SwitchTest.random.nextInt()%10;
