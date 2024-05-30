@@ -28,4 +28,17 @@ public class RecordTest {
         System.out.println("Student02 Id:" + student02.id());
         System.out.println("Student02 Name" + student02.name());
     }
+
+    @Test
+    public void testRecord02() {
+        Student student01 = new Student(1001, "John", "John@1.com", 22);
+
+        System.out.println(student01.concat());
+    }
+
+    @Test
+    public void testRecordStatic() {
+        System.out.println(Student.emailToUpCase(null));
+        System.out.println(Student.emailToUpCase("john@s1.com"));
+    }
 }
