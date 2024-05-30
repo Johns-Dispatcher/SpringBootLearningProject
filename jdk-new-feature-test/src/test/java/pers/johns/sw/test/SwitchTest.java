@@ -25,4 +25,15 @@ public class SwitchTest {
             default -> System.out.println("日期错误");
         }
     }
+
+    @Test
+    public void testYield() {
+        int dow = SwitchTest.random.nextInt()%10;
+        String info = switch (dow) {
+            case 1, 2, 3, 4, 5: yield "工作日";
+            case 6, 7: yield "休息日";
+            default: yield "日期错误";
+        };
+        System.out.println(info);
+    }
 }
