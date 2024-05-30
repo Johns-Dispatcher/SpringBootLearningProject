@@ -71,4 +71,15 @@ public class RecordTest {
         Product product = new Product(1001, "Computer");
         product.print();
     }
+
+    /**
+     * 定于局部Record类型，并测试
+     */
+    @Test
+    public void testInnerRecord() {
+        record SaleRecord(Integer id, String productName){};
+
+        SaleRecord car = new SaleRecord(1001, "Car");
+        System.out.println(car);
+    }
 }
