@@ -41,4 +41,10 @@ public class RecordTest {
         System.out.println(Student.emailToUpCase(null));
         System.out.println(Student.emailToUpCase("john@s1.com"));
     }
+
+    @Test
+    public void testRecordConstruct() {
+        Student student = new Student(11, "Alice");
+        System.out.println(student);
+    }
 }
