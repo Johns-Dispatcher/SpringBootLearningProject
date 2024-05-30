@@ -19,10 +19,15 @@ public class TextBlockTest {
     public void testTextBlock() {
         String textBlock =
             """
-            SELECT *
-            FROM oa
-            WHERE id = 1
+            SELECT
+                *
+            FROM
+                oa
+            WHERE
+                id = 1
             """;
         System.out.println(textBlock);
+        String indented = textBlock.indent(2);
+        System.out.println(indented);
     }
 }
