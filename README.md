@@ -17,3 +17,8 @@ Maven: 3.9.6<br>
 - 测试sealed密闭类
 
 #### [springboot-case-001](springboot-case-001) | 使用脚手架环境创建项目
+
+#### [springboot-case-002](springboot-case-002) | 使用IDEA快速搭建项目
+
+#### [springboot-case-003-single-module](springboot-case-003-single-module) | SpringBoot单模块目录结构
+
