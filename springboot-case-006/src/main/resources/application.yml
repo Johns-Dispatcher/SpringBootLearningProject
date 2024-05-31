@@ -1,0 +1,4 @@
+# YAML格式默认配置项
+app:
+  name: springboot-case-yaml
+  port: 8000

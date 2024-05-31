@@ -23,3 +23,10 @@ Maven: 3.9.6<br>
 #### [springboot-case-003-single-module](springboot-case-003-single-module) | SpringBoot单模块目录结构
 
 #### [springboot-case-004-muti](springboot-case-004-muti) | SpringBoot多模块目录结构
+
+#### [springboot-case-005](springboot-case-005) | SpringBoot初始使用
+
+#### [springboot-case-006](springboot-case-006) | SpringBoot默认配置文件使用
+- 配置application.properties文件
+- 配置application.yml文件
+- 了解YAML语法
