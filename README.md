@@ -30,3 +30,4 @@ Maven: 3.9.6<br>
 - 配置application.properties文件
 - 配置application.yml文件
 - 了解YAML语法
+- 测试环境对象
