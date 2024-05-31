@@ -22,3 +22,4 @@ Maven: 3.9.6<br>
 
 #### [springboot-case-003-single-module](springboot-case-003-single-module) | SpringBoot单模块目录结构
 
+#### [springboot-case-004-muti](springboot-case-004-muti) | SpringBoot多模块目录结构
