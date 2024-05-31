@@ -48,4 +48,16 @@ public class ApplicationTest {
         Integer port = environment.getProperty("app.port", Integer.class, 8080);
         System.out.println("Port: " + port);
     }
+
+    /**
+     * 测试多配置文件
+     */
+    @Test
+    public void testExtraConfig() {
+        String redisHost = environment.getProperty("spring.redis.host");
+        String datasourceUrl = environment.getProperty("spring.datasource.url");
+
+        System.out.println("Redis Host: " + redisHost);
+        System.out.println("Datasource Url: " + datasourceUrl);
+    }
 }

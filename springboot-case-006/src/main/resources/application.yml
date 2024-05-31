@@ -2,3 +2,7 @@
 app:
   name: springboot-case-yaml
   port: 8000
+# 导入其他配置文件
+spring:
+  config:
+    import: conf/db.yml, conf/redis.yml
