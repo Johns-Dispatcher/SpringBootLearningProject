@@ -60,4 +60,10 @@ public class ApplicationTest {
         System.out.println("Redis Host: " + redisHost);
         System.out.println("Datasource Url: " + datasourceUrl);
     }
+
+    @Test
+    public void testExtraProfiles() {
+        String memo = environment.getProperty("myapp.memo");
+        System.out.println("Memo: " + memo);
+    }
 }

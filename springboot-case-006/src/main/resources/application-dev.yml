@@ -1,0 +1,7 @@
+myapp:
+  memo: 开发环境配置
+# 指定环境名称
+spring:
+  config:
+    activate:
+      on-profile: dev
