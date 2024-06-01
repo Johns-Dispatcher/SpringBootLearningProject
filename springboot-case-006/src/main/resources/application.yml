@@ -18,3 +18,7 @@ app1:
   security:
     username: root
     password: root
+
+security:
+  username: root
+  password: root

@@ -2,6 +2,8 @@ package pers.johns.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+import pers.johns.springboot.config.BeanConfig;
 
 /**
  * ClassName    : Application
@@ -13,7 +15,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
+@Import(BeanConfig.class)
 public class Application {
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }

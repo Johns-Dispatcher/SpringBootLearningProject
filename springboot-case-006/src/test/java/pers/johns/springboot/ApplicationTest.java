@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 import pers.johns.springboot.bean.AppBean;
 import pers.johns.springboot.bean.NestAppBean;
+import pers.johns.springboot.bean.Security;
 import pers.johns.springboot.service.SomeService;
 
 /**
@@ -35,6 +36,9 @@ public class ApplicationTest {
 
     @Autowired
     private NestAppBean nestAppBean;
+
+    @Autowired
+    private Security security;
 
     /**
      * 测试默认配置文件中的属性
@@ -96,5 +100,10 @@ public class ApplicationTest {
     @Test
     public void testNestBean() {
         System.out.println(nestAppBean);
+    }
+
+    @Test
+    public void testThirdBean() {
+        System.out.println(security);
     }
 }
