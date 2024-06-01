@@ -11,3 +11,10 @@ spring:
 # 激活环境
   profiles:
     active: dev
+
+app1:
+  name: springboot-case
+  port: 3306
+  security:
+    username: root
+    password: root

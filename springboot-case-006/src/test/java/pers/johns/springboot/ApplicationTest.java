@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
+import pers.johns.springboot.bean.AppBean;
+import pers.johns.springboot.bean.NestAppBean;
 import pers.johns.springboot.service.SomeService;
 
 /**
@@ -23,6 +25,12 @@ public class ApplicationTest {
 
     @Autowired
     private Environment environment;
+
+    @Autowired
+    private AppBean appBean;
+
+    @Autowired
+    private NestAppBean nestAppBean;
 
     /**
      * 测试默认配置文件中的属性
@@ -61,9 +69,28 @@ public class ApplicationTest {
         System.out.println("Datasource Url: " + datasourceUrl);
     }
 
+    /**
+     * 测试环境配置文件
+     */
     @Test
     public void testExtraProfiles() {
         String memo = environment.getProperty("myapp.memo");
         System.out.println("Memo: " + memo);
+    }
+
+    /**
+     * 测试配置文件注入到Bean属性
+     */
+    @Test
+    public void testPropertiesBean() {
+        System.out.println(appBean);
+    }
+
+    /**
+     * 测试嵌套配置注入到Bean
+     */
+    @Test
+    public void testNestBean() {
+        System.out.println(nestAppBean);
     }
 }
