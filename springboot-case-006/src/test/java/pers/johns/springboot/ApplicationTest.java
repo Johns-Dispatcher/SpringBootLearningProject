@@ -6,10 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
-import pers.johns.springboot.bean.AppBean;
-import pers.johns.springboot.bean.MyCollection;
-import pers.johns.springboot.bean.NestAppBean;
-import pers.johns.springboot.bean.Security;
+import pers.johns.springboot.bean.*;
 import pers.johns.springboot.service.SomeService;
 
 /**
@@ -42,6 +39,9 @@ public class ApplicationTest {
 
     @Autowired
     private MyCollection myCollection;
+
+    @Autowired
+    private Group group;
 
     /**
      * 测试默认配置文件中的属性
@@ -113,8 +113,19 @@ public class ApplicationTest {
         System.out.println(security);
     }
 
+    /**
+     * 测试集合相关属性注入
+     */
     @Test
     public void testCollectionProperties() {
         System.out.println(myCollection);
+    }
+
+    /**
+     * 测试外部单独文件数据源注入
+     */
+    @Test
+    public void testPropertySource() {
+        System.out.println(group);
     }
 }
