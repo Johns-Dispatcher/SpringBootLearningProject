@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  */
 
 
-@Configuration(proxyBeanMethods = false)
+// @Configuration(proxyBeanMethods = false)
 @ConfigurationProperties(prefix = "app1")
 public class NestAppBean {
     private String name;

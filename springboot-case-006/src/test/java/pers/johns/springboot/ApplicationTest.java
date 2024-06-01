@@ -2,6 +2,8 @@ package pers.johns.springboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 import pers.johns.springboot.bean.AppBean;
@@ -17,6 +19,8 @@ import pers.johns.springboot.service.SomeService;
  * @version : 1.0
  */
 
+@EnableConfigurationProperties(NestAppBean.class)
+// @ConfigurationPropertiesScan("pers.johns.springboot.bean")
 @SpringBootTest
 public class ApplicationTest {
 
