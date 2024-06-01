@@ -43,6 +43,9 @@ public class ApplicationTest {
     @Autowired
     private Group group;
 
+    @Autowired
+    private Person person;
+
     /**
      * 测试默认配置文件中的属性
      */
@@ -127,5 +130,13 @@ public class ApplicationTest {
     @Test
     public void testPropertySource() {
         System.out.println(group);
+    }
+
+    /**
+     * 测试使用XML配置文件
+     */
+    @Test
+    public void testClassicXML() {
+        System.out.println(person);
     }
 }
