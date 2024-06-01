@@ -22,3 +22,26 @@ app1:
 security:
   username: root
   password: root
+
+# 配置集合属性
+# Array
+names:
+  - John
+  - Jonathan
+  - Alice
+
+# List
+servers:
+  - title: 东北一区
+    ip: 204.1.165.24
+  - title: 华北一区
+    ip: 15.145.0.34
+
+# Map
+users:
+  user1:
+    name: John
+    age: 21
+  user2:
+    name: Jonathan
+    age: 23

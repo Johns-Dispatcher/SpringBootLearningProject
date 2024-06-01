@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 import pers.johns.springboot.bean.AppBean;
+import pers.johns.springboot.bean.MyCollection;
 import pers.johns.springboot.bean.NestAppBean;
 import pers.johns.springboot.bean.Security;
 import pers.johns.springboot.service.SomeService;
@@ -20,8 +21,7 @@ import pers.johns.springboot.service.SomeService;
  * @version : 1.0
  */
 
-@EnableConfigurationProperties(NestAppBean.class)
-// @ConfigurationPropertiesScan("pers.johns.springboot.bean")
+
 @SpringBootTest
 public class ApplicationTest {
 
@@ -39,6 +39,9 @@ public class ApplicationTest {
 
     @Autowired
     private Security security;
+
+    @Autowired
+    private MyCollection myCollection;
 
     /**
      * 测试默认配置文件中的属性
@@ -102,8 +105,16 @@ public class ApplicationTest {
         System.out.println(nestAppBean);
     }
 
+    /**
+     * 测试以方法方式注入构建第三方库对象
+     */
     @Test
     public void testThirdBean() {
         System.out.println(security);
+    }
+
+    @Test
+    public void testCollectionProperties() {
+        System.out.println(myCollection);
     }
 }

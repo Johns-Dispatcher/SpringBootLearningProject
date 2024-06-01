@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @version : 1.0
  */
 
-@Configuration(proxyBeanMethods = false)
+// @Configuration(proxyBeanMethods = false)
 @ConfigurationProperties(prefix = "app")
 public class AppBean {
 
