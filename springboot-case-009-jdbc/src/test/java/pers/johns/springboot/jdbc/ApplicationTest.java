@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import pers.johns.springboot.jdbc.model.pojo.Article;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +27,9 @@ public class ApplicationTest {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     /**
      * 测试JDBC模板类
@@ -76,11 +81,37 @@ public class ApplicationTest {
         List<Map<String, Object>> articles = jdbcTemplate.queryForList(sql);
         articles.forEach(article -> {
             article.forEach((articleProperty, propertyValue) -> {
-                System.out.println(String.format("Property: %s, Value: %s", articleProperty, propertyValue));
+                System.out.printf("Property: %s, Value: %s%n", articleProperty, propertyValue);
             });
             System.out.println("====");
         });
     }
 
+    /**
+     * 测试Update语句更新数据库条目
+     */
+    @Test
+    public void testUpdate() {
+        String sql = "update article set title = ? where id = ?";
+        int count = jdbcTemplate.update(sql, "JVM 001", 2);
+        System.out.println("影响记录条数" + count);
+    }
+
+
+    /***
+     * 使用命名参数模板类 NameParameterJdbcTemplate
+     */
+    @Test
+    public void testNamedParameterJdbcTemplate() {
+        String sql = "select count(*) from article where user_id=:uid and read_count >:num";
+
+        Map<String, Object> params = new HashMap<>();
+
+        params.put("uid", 2101);
+        params.put("num", 10);
+
+        Long count = namedParameterJdbcTemplate.queryForObject(sql, params, Long.class);
+        System.out.println(count);
+    }
 
 }
