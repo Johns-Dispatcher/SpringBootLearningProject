@@ -1,0 +1,13 @@
+# 配置DataSource
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/blog
+    username: root
+    password: root
+# 配置MyBatis
+# 开启驼峰转换
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

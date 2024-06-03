@@ -4,9 +4,14 @@
 
 学习SpringBoot相关技术
 
+### 参考视频
+
+https://www.bilibili.com/video/BV1Km4y1k7bn/
+
 ### 构建环境
 JDK: 17<br>
 Maven: 3.9.6<br>
+SpringBoot: 3.2.6
 
 ### 各模块说明
 #### [jdk-new-feature-test](jdk-new-feature-test) | 测试JDK新特性
@@ -34,3 +39,9 @@ Maven: 3.9.6<br>
 - 测试多配置文件的使用
 - 测试多环境配置文件的使用
 - 配置文件注入至Bean对象的属性
+
+#### [springboot-case-008-aop](springboot-case-008-aop) | SpringBoot Aop相关使用
+
+- 与Spring框架的AOP使用方法一致
+
+#### [springboot-case-009-jdbc](springboot-case-009-jdbc) | SpringBoot 连接数据库
