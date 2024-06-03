@@ -26,4 +26,5 @@ public class Article {
     private Integer readCount;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
+    private ArticleDetail articleDetail;
 }

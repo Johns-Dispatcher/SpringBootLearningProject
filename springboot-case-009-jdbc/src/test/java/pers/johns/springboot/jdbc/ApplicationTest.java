@@ -7,8 +7,10 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import pers.johns.springboot.jdbc.model.pojo.Article;
+import pers.johns.springboot.jdbc.model.pojo.ArticleDetail;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,7 +69,7 @@ public class ApplicationTest {
             var createTime = new Timestamp(rs.getTimestamp("create_time").getTime()).toLocalDateTime();
             var updateTime = new Timestamp(rs.getTimestamp("update_time").getTime()).toLocalDateTime();
 
-            return new Article(id, userId, title, summary, readCount, createTime, updateTime);
+            return new Article(id, userId, title, summary, readCount, createTime, updateTime, null);
         }, 1);
         System.out.println(article);
     }
@@ -112,6 +114,44 @@ public class ApplicationTest {
 
         Long count = namedParameterJdbcTemplate.queryForObject(sql, params, Long.class);
         System.out.println(count);
+    }
+
+    /**
+     * 测试多表联合查询
+     */
+    @Test
+    public void testQueryContent() {
+        String sql =
+                """
+                        select a.*, ad.id as detail_id, ad.article_id, ad.content \
+                        from article a \
+                        join article_detail ad \
+                        on a.id = ad.id \
+                        where a.id = :id \
+                        """;
+
+        Map<String, Object> params = new HashMap<>();
+
+        params.put("id", 1);
+
+        Article article = namedParameterJdbcTemplate.queryForObject(sql, params, ((rs, rowNum) -> {
+
+            int id = rs.getInt("id");
+            int userId = rs.getInt("user_id");
+            String title = rs.getString("title");
+            String summary = rs.getString("summary");
+            int readCount = rs.getInt("read_count");
+            LocalDateTime createTime = new Timestamp(rs.getTimestamp("create_time").getTime()).toLocalDateTime();
+            LocalDateTime updateTime = new Timestamp(rs.getTimestamp("update_time").getTime()).toLocalDateTime();
+
+            int detailId = rs.getInt("detail_id");
+            int articleId = rs.getInt("article_id");
+            String content = rs.getString("content");
+
+            return new Article(id, userId, title, summary, readCount, createTime, updateTime, new ArticleDetail(detailId, articleId, content));
+        }));
+
+        System.out.println(article);
     }
 
 }
