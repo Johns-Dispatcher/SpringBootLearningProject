@@ -1,0 +1,11 @@
+# 配置数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/blog
+    username: root
+    password: root
+  # 设置自动执行脚本 设置为 always 一次进行初始化 之后使用 never 就好
+  sql:
+    init:
+      mode: never
