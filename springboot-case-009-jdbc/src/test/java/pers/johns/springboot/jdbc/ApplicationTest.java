@@ -8,6 +8,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import pers.johns.springboot.jdbc.model.pojo.Article;
 
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.Map;
 
 /**
  * ClassName    : ApplicationTest
@@ -64,4 +66,21 @@ public class ApplicationTest {
         }, 1);
         System.out.println(article);
     }
+
+    /**
+     * 测试查询列表方法
+     */
+    @Test
+    public void testQueryList() {
+        String sql = "select * from article";
+        List<Map<String, Object>> articles = jdbcTemplate.queryForList(sql);
+        articles.forEach(article -> {
+            article.forEach((articleProperty, propertyValue) -> {
+                System.out.println(String.format("Property: %s, Value: %s", articleProperty, propertyValue));
+            });
+            System.out.println("====");
+        });
+    }
+
+
 }
