@@ -4,8 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pers.johns.springboot.mybatis.dao.ArticleDao;
+import pers.johns.springboot.mybatis.mapper.ArticleCommentMapper;
 import pers.johns.springboot.mybatis.mapper.ArticleMapper;
 import pers.johns.springboot.mybatis.mapper.ArticleOne2OneMapper;
+import pers.johns.springboot.mybatis.model.bean.ArticleBean;
 import pers.johns.springboot.mybatis.model.entity.ArticleEntity;
 import pers.johns.springboot.mybatis.model.pojo.Article;
 import pers.johns.springboot.mybatis.repository.ArticleRepository;
@@ -28,6 +30,9 @@ class ApplicationTest {
 
     @Autowired
     private ArticleOne2OneMapper articleOne2OneMapper;
+
+    @Autowired
+    private ArticleCommentMapper articleCommentMapper;
 
     /**
      * 测试MyBatis查询
@@ -132,11 +137,21 @@ class ApplicationTest {
     }
 
     /**
-     * 测试@One高级映射
+     * 测试高级映射 @One 一对一关系
      */
     @Test
     public void testOneMapper() {
         ArticleEntity articleEntity = articleOne2OneMapper.selectArticle(1);
         System.out.println(articleEntity);
+    }
+
+    /**
+     * 测试高级映射 @Many 一对多关系
+     */
+    @Test
+    public void testManyMapper() {
+        ArticleBean articleBean = articleCommentMapper.selectArticleWitchCommentsById(1);
+
+        System.out.println(articleBean);
     }
 }
