@@ -1,10 +1,25 @@
 # 配置DataSource
 spring:
   datasource:
+    # 默认就是 Hikari
+    type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/blog
     username: root
     password: root
+    hikari:
+      auto-commit: true
+      # 估算公式 [(CPU Core Number * 2) + Disk Number]
+      maximum-pool-size: 10
+      connection-test-query: select 1
+      connection-timeout: 2000
+      # MySQL推荐设置项
+      data-source-properties:
+        cachePrepStmts: true
+        dataSource.cachePrepStmts: true
+        dataSource.prepStmtCacheSize: 250
+        dataSource.prepStmtCacheSqlLimit: 2048
+        dataSource.userServerPrepStmts: true
 # 配置MyBatis
 mybatis:
   configuration:

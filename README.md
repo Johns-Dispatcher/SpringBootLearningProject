@@ -41,7 +41,15 @@ SpringBoot: 3.2.6
 - 配置文件注入至Bean对象的属性
 
 #### [springboot-case-008-aop](springboot-case-008-aop) | SpringBoot Aop相关使用
-
 - 与Spring框架的AOP使用方法一致
 
 #### [springboot-case-009-jdbc](springboot-case-009-jdbc) | SpringBoot 连接数据库
+
+- 使用JDBC模板类完成
+
+#### [springboot-case-010-mybatis](springboot-case-010-mybatis) | SpringBoot 集成MyBatis框架使用
+
+- 使用MyBatis注解式开发方式完成数据库CRUD
+- 测试ResultMap结果映射
+- 使用注解完成MyBatis的高级映射
+- 连接池的基础配置
