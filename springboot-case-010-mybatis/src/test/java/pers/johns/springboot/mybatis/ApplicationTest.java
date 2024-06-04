@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pers.johns.springboot.mybatis.dao.ArticleDao;
 import pers.johns.springboot.mybatis.mapper.ArticleMapper;
+import pers.johns.springboot.mybatis.mapper.ArticleOne2OneMapper;
+import pers.johns.springboot.mybatis.model.entity.ArticleEntity;
 import pers.johns.springboot.mybatis.model.pojo.Article;
 import pers.johns.springboot.mybatis.repository.ArticleRepository;
 
@@ -23,6 +25,9 @@ class ApplicationTest {
 
     @Autowired
     private ArticleRepository articleRepository;
+
+    @Autowired
+    private ArticleOne2OneMapper articleOne2OneMapper;
 
     /**
      * 测试MyBatis查询
@@ -126,5 +131,12 @@ class ApplicationTest {
         System.out.println(count);
     }
 
-
+    /**
+     * 测试@One高级映射
+     */
+    @Test
+    public void testOneMapper() {
+        ArticleEntity articleEntity = articleOne2OneMapper.selectArticle(1);
+        System.out.println(articleEntity);
+    }
 }
