@@ -93,7 +93,36 @@ class ApplicationTest {
         Article article = articleRepository.selectById(1);
         System.out.println(article);
 
-        int count = articleRepository.updateTim(2, LocalDateTime.now());
+        int count = articleRepository.updateTime(2, LocalDateTime.now());
+        System.out.println(count);
+    }
+
+    /**
+     * 测试SQLProvider 新增操作
+     */
+    @Test
+    public void testSqlProviderInsert() {
+        Article article = new Article();
+
+        article.setUserId(3001);
+        article.setTitle("SQLProvider Usage");
+        article.setSummary("SQLProvider is easy");
+        article.setReadCount(10);
+        article.setCreateTime(LocalDateTime.now());
+        article.setUpdateTime(LocalDateTime.now());
+
+        int count = articleRepository.insertArticle(article);
+
+        System.out.println(count);
+    }
+
+    /**
+     * 测试SQLProvider 删除操作
+     */
+    @Test
+    public void testSqlProviderDelete() {
+        int count = articleRepository.deleteArticle(4);
+
         System.out.println(count);
     }
 

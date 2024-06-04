@@ -38,5 +38,11 @@ public interface ArticleRepository {
     Article selectById(Integer id);
 
     @UpdateProvider(type = SqlProvider.class, method = "updateArticleTime")
-    int updateTim(Integer id, LocalDateTime newTime);
+    int updateTime(Integer id, LocalDateTime newTime);
+
+    @InsertProvider(type = SqlProvider.class, method = "insertArticle")
+    int insertArticle(Article article);
+
+    @DeleteProvider(type = SqlProvider.class, method = "deleteArticleById")
+    int deleteArticle(Integer id);
 }
