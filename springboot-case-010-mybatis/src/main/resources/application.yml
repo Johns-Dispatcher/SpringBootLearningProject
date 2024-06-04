@@ -6,8 +6,10 @@ spring:
     username: root
     password: root
 # 配置MyBatis
-# 开启驼峰转换
 mybatis:
   configuration:
+    # 关闭驼峰转换 测试ResultMap
     map-underscore-to-camel-case: false
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 为XML配置文件开启别名
+  type-aliases-package: pers.johns.springboot.mybatis.model.pojo

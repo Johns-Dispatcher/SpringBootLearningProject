@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 /**
  * ClassName    : Article
- * Description  :
+ * Description  : 实体类 对应表article
  * CreateTime   : 2024/6/3 22:00
  *
  * @author : JohnS

@@ -5,7 +5,7 @@ import pers.johns.springboot.mybatis.model.pojo.Article;
 
 /**
  * InterfaceName : ArticleMapper
- * Description   :
+ * Description   : 普通的Mapper接口
  * CreateTime    : 2024/6/3 22:02
  *
  * @author : JohnS
