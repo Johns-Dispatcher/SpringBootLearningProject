@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/blog
+    username: root
+    password: root
+    hikari:
+      auto-commit: true
+      connection-test-query: select 1
+      maximum-pool-size: 10
+      data-source-properties:
+        cachePrepStmts: true
+        dataSource.cachePrepStmts: true
+        dataSource.prepStmtCacheSize: 250
+        dataSource.prepStmtCacheSqlLimit: 2048
+        dataSource.userServerPrepStmts: true
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
