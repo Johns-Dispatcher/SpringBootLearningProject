@@ -60,3 +60,8 @@ https://www.bilibili.com/video/BV1Km4y1k7bn/
 
 - 启用方式和 `Spring` 框架一致
 - 使用 `@Transactional` 注解
+
+#### [springboot-case-012-web](springboot-case-012-web) | SpringBoot 快速搭建Web项目
+
+- 使用 `SpringBoot` 快速搭建Web项目（SpringMVC）
+- 视图技术采用 `Thymeleaf`

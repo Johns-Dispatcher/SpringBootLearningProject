@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quick Page</title>
+    <script src="/static/axios.min.js"></script>
+    <script src="/static/vue.3.4.27.js"></script>
+</head>
+<body>
+<h1>欢迎访问</h1>
+<hr>
+<h3>
+    服务器信息: <span th:text="${serverMessage}"></span>
+</h3>
+<div id="app">
+    <h3>{{msg}}</h3>
+    <button @click="sendAJAX">发送AJAX请求</button>
+</div>
+
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                msg: "Vue 3"
+            }
+        },
+        methods: {
+            async sendAJAX() {
+                let response = await axios.get('/json/message')
+                this.msg = response.data
+            }
+        }
+    }).mount('#app')
+</script>
+</body>
+</html>
