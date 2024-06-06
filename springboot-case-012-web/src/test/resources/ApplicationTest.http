@@ -1,2 +1,8 @@
 ###
 GET http://localhost:8080/json/user
+
+###
+GET http://localhost:8080/param/normal?name=John&age=18&gender=m
+
+###
+GET http://localhost:8080/param/bean?username=John&password=123456
