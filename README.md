@@ -65,3 +65,6 @@ https://www.bilibili.com/video/BV1Km4y1k7bn/
 
 - 使用 `SpringBoot` 快速搭建Web项目（SpringMVC）
 - 视图技术采用 `Thymeleaf`
+- 使用 `SpringMVC` 接收处理请求
+- 响应 `JSON` 格式数据
+- 使用 `JSR-303` 提供注解进行数据验证

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Quick Page</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
-    <script src="/js/axios.min.js"></script>
-    <script src="/js/vue.3.4.27.js"></script>
+    <link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
+    <script th:src="@{/js/axios.min.js}"></script>
+    <script th:src="@{/js/vue.3.4.27.js}"></script>
 </head>
 <body>
 <h1>欢迎访问</h1>
@@ -22,6 +22,8 @@
 </div>
 
 <script>
+    let projectRoot = '[[@{/}]]'
+
     Vue.createApp({
         data() {
             return {
@@ -34,11 +36,11 @@
         },
         methods: {
             async sendAJAX() {
-                let response = await axios.get('/json/message')
+                let response = await axios.get(projectRoot + 'json/message')
                 this.msg = response.data
             },
             async getUser() {
-                let response = await axios.get('/json/user')
+                let response = await axios.get(projectRoot + 'json/user')
                 this.user = response.data
             }
         }
