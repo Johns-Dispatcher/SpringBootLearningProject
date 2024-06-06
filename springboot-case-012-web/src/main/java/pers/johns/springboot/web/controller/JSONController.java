@@ -3,6 +3,7 @@ package pers.johns.springboot.web.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pers.johns.springboot.web.model.pojo.User;
 
 import java.util.Random;
 
@@ -22,5 +23,10 @@ public class JSONController {
     @GetMapping("/message")
     public String jsonMessage() {
         return "Random: " + new Random().nextInt(5000);
+    }
+
+    @GetMapping("/user")
+    public User getUser() {
+        return new User("John", "123456");
     }
 }
