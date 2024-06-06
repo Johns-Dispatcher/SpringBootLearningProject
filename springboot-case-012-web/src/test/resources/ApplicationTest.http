@@ -6,3 +6,28 @@ GET http://localhost:8080/param/normal?name=John&age=18&gender=m
 
 ###
 GET http://localhost:8080/param/bean?username=John&password=123456
+
+###
+POST http://localhost:8080/article/post
+Content-Type: application/json
+
+{
+  "userId": 0,
+  "title": "Spring Boot",
+  "summary": "Spring",
+  "readCount": 1,
+  "emil": "JohnSun@outlook.com"
+}
+
+###
+POST http://localhost:8080/article/edit
+Content-Type: application/json
+
+{
+  "id": 1,
+  "userId": 0,
+  "title": "Spring Boot",
+  "summary": "Spring",
+  "readCount": 1,
+  "emil": "JohnSun@outlook.com"
+}
