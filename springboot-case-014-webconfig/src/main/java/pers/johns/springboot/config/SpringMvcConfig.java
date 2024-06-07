@@ -1,8 +1,10 @@
 package pers.johns.springboot.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import pers.johns.springboot.formatter.DeviceFormatter;
 
 /**
  * ClassName    : SpringMvcConfig
@@ -18,5 +20,10 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addFormatter(new DeviceFormatter());
     }
 }
