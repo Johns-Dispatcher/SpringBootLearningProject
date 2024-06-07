@@ -1,0 +1,20 @@
+###
+POST http://localhost:8080/compute/divide
+Content-Type: application/x-www-form-urlencoded
+
+dividend = 34 &
+divisor = 2
+
+###
+POST http://localhost:8080/compute/divide
+Content-Type: application/x-www-form-urlencoded
+
+dividend = 34 &
+divisor = 0
+
+###
+POST http://localhost:8080/compute/divide
+Content-Type: application/x-www-form-urlencoded
+
+dividend = 0 &
+divisor = 1

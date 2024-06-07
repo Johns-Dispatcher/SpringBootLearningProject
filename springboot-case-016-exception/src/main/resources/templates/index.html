@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>异常处理</title>
+</head>
+<body>
+<h1>异常处理器</h1>
+<hr>
+<form th:action="@{/compute/divide}" method="post">
+    <label><input type="number" name="dividend"></label> / <label><input type="number" name="divisor"></label> =
+    ?<br><br>
+    <input type="submit" value="计算">
+</form>
+</body>
+</html>
