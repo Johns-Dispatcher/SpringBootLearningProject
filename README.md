@@ -68,3 +68,19 @@ https://www.bilibili.com/video/BV1Km4y1k7bn/
 - 使用 `SpringMVC` 接收处理请求
 - 响应 `JSON` 格式数据
 - 使用 `JSR-303` 提供注解进行数据验证
+
+#### [springboot-case-013](springboot-case-013) | SpringBoot 配置Servlet、Filter等
+
+- 在SpringBoot中使用 `ServletRegistrationBean` 配置Servlet对象
+- 在SpringBoot中使用 `FilterRegistrationBean` 配置过滤器类
+
+#### [springboot-case-014-webconfig](springboot-case-014-webconfig) | SpringBoot 配置 SpringMVC 相关配置
+
+- 通过 `WebMvcConfigurer` 接口完成相关配置
+- 配置拦截器 `Interceptor`
+- 配置 `Formatter` 完成数据的格式化转换
+
+#### [springboot-case-015-file](springboot-case-015-file) | SpringBoot 完成文件上传并回显信息
+
+- 通过 `MultipartFile` 对象完成上传文件的读取与写入
+- 通过配置资源处理器的方式完成上传后的文件回显
