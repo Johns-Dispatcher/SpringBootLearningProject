@@ -3,3 +3,18 @@ POST http://localhost:8080/device/add
 Content-Type: application/x-www-form-urlencoded
 
 device = 11g;225;36d;f01;af1
+
+###
+POST http://localhost:8080/article/post
+Content-Type: application/x-www-form-urlencoded
+
+user = John
+
+###
+POST http://localhost:8080/article/post
+Content-Type: application/x-www-form-urlencoded
+
+user = Jonathan
+
+###
+GET http://localhost:8080/article/query?user=Jonathan
