@@ -84,3 +84,12 @@ https://www.bilibili.com/video/BV1Km4y1k7bn/
 
 - 通过 `MultipartFile` 对象完成上传文件的读取与写入
 - 通过配置资源处理器的方式完成上传后的文件回显
+
+#### [springboot-case-016-exception](springboot-case-016-exception) | 进行Web相关的异常处理
+
+- 使用异常处理器
+
+#### [springboot-case-017-problem-detail](springboot-case-017-problem-detail) | 使用 ProblemDetail 进行异常处理
+
+- 直接返回 `ProblemDetail` 对象进行异常处理
+- 返回 `ErrorResponseException` 对象，在其中夹带 `ProblemDetail` 对象完成异常处理

@@ -3,7 +3,6 @@ package pers.johns.springboot.config;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 import pers.johns.springboot.model.BookRecord;
 
 import java.util.List;
