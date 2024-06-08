@@ -1,0 +1,17 @@
+# 模拟数据库数据
+product:
+  books:
+    - isbn: B001
+      name: Java
+      author: John
+    - isbn: B002
+      name: Tomcat
+      author: Jonathan
+    - isbn: B003
+      name: MySQL
+      author: Josh
+# 启用 RFC-7807 支持
+spring:
+  mvc:
+    problemdetails:
+      enabled: true

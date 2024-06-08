@@ -1,0 +1,8 @@
+###
+GET http://localhost:8080/book/query?isbn=B001
+
+###
+GET http://localhost:8080/book/query?isbn=A001
+
+###
+GET http://localhost:8080/problem/not-found
