@@ -1,6 +1,9 @@
 package pers.johns.springboot.handler.exception;
 
 import org.springframework.ui.Model;
+import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,10 +38,35 @@ public class GlobalException {
     }
 
     /**
+     * 处理JSR-303验证异常
+     *
+     * @param exception 验证异常
+     * @return 验证结果
+     */
+    @ExceptionHandler(BindException.class)
+    @ResponseBody
+    public Map<String, Object> handleBindException(BindException exception) {
+        Map<String, Object> map = new HashMap<>();
+        BindingResult result = exception.getBindingResult();
+
+        if (result.hasErrors()) {
+            int index = 1;
+            for (FieldError error : result.getFieldErrors()) {
+                String field = error.getField();
+                String message = error.getDefaultMessage();
+                map.put(String.format("[Error %d] - %s", index, field), message);
+                index++;
+            }
+        }
+
+        return map;
+    }
+
+    /**
      * 处理全部异常
      *
      * @param exception 任意异常
-     * @return 展示视图
+     * @return 异常信息
      */
     @ExceptionHandler(Exception.class)
     @ResponseBody

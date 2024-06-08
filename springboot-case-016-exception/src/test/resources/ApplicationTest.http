@@ -18,3 +18,23 @@ Content-Type: application/x-www-form-urlencoded
 
 dividend = 0 &
 divisor = 1
+
+###
+POST http://localhost:8080/order/add
+Content-Type: application/json
+
+{
+  "name": "Phone",
+  "number": 10,
+  "userId": 101
+}
+
+###
+POST http://localhost:8080/order/add
+Content-Type: application/json
+
+{
+  "name": "1",
+  "number": 0,
+  "userId": 0
+}
