@@ -93,3 +93,9 @@ https://www.bilibili.com/video/BV1Km4y1k7bn/
 
 - 直接返回 `ProblemDetail` 对象进行异常处理
 - 返回 `ErrorResponseException` 对象，在其中夹带 `ProblemDetail` 对象完成异常处理
+
+#### [springboot-case-018](springboot-case-018) | 使用 HttpExchange 完成远程访问
+
+- 使用 `@HttpExchange` 相关注解进行远程访问请求设置
+- 配置请求接口的代理对象，通过 `WebClient` 和 `HttpServiceProxyFactory` 创建代理对象
+- 通过对 `HttpConfig` 对象和 `WebClient` 对象设置完成自定义的远程访问设置
