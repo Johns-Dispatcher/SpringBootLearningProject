@@ -12,7 +12,7 @@ import pers.johns.springboot.service.TodoService;
 import java.util.Random;
 
 /**
- * ClassName    : ApplicationTest
+ * ClassName    : TodoServiceTest
  * Description  :
  * CreateTime   : 2024/6/8 22:49
  *
@@ -21,7 +21,7 @@ import java.util.Random;
  */
 
 @SpringBootTest
-public class ApplicationTest {
+public class TodoServiceTest {
 
     @Resource
     private TodoService todoService;
