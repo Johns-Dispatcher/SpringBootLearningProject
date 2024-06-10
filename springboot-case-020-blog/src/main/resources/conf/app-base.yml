@@ -1,0 +1,3 @@
+article:
+  low-read-count: 10
+  top-show-rows: 20

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>文章详情</title>
+    <style>
+        .div-main {
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+
+        .div-main table {
+            margin: auto;
+            width: 90%;
+        }
+
+        .div-main table th, td {
+            padding: 5px 10px;
+        }
+    </style>
+    <script th:src="@{/static/js/vue.3.4.27.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+</head>
+<body>
+<div class="div-main" id="app">
+    <h1>文章详情</h1>
+    <hr>
+    <table>
+        <tr>
+            <td>文章ID</td>
+            <td>{{article.id}}</td>
+        </tr>
+        <tr>
+            <td>用户ID</td>
+            <td>{{article.userId}}</td>
+        </tr>
+        <tr>
+            <td>文章标题</td>
+            <td>{{article.title}}</td>
+        </tr>
+        <tr>
+            <td>文章副标题</td>
+            <td>{{article.summary}}</td>
+        </tr>
+        <tr>
+            <td>阅读数</td>
+            <td>{{article.readCount}}</td>
+        </tr>
+        <tr>
+            <td>发布时间</td>
+            <td>{{article.createTime}}</td>
+        </tr>
+        <tr>
+            <td>修改时间</td>
+            <td>{{article.updateTime}}</td>
+        </tr>
+        <tr>
+            <td>文章详情</td>
+            <td>{{article.articleDetail.content}}</td>
+        </tr>
+    </table>
+    <br><br>
+    <a th:href="@{/}">返回</a>
+</div>
+<script>
+    let projectRoot = '[[@{/}]]'
+
+    Vue.createApp({
+        data() {
+            return {
+                id: [[${articleId}]],
+                article: {
+                    articleDetail: {}
+                }
+            }
+        },
+        methods: {
+            async query() {
+                let response = await axios.get(projectRoot + "article/" + this.id)
+                this.article = response.data
+            }
+        },
+        mounted() {
+            this.query()
+        }
+    }).mount("#app")
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog System</title>
+    <style>
+        .div-main {
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+
+        .div-main table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: auto;
+            width: 90%;
+        }
+
+        .div-main table th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px 10px;
+        }
+    </style>
+    <script th:src="@{/static/js/vue.3.4.27.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+</head>
+<body>
+<div class="div-main" id="app">
+    <h3>阅读最多的文章</h3>
+    <hr>
+    <table>
+        <thead>
+        <tr>
+            <th>选择</th>
+            <th>序号</th>
+            <th>标题</th>
+            <th>副标题</th>
+            <th>已读数</th>
+            <th>发布时间</th>
+            <th>最后修改时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(article, index) in articles" :key="article.id">
+            <td>
+                <input type="checkbox" v-model="article.checked">
+            </td>
+            <td>{{index + 1}}</td>
+            <td>{{article.title}}</td>
+            <td>{{article.summary}}</td>
+            <td>{{article.readCount}}</td>
+            <td>{{article.createTime}}</td>
+            <td>{{article.updateTime}}</td>
+            <td>
+                <button @click="queryById(article.id)">查看</button>&nbsp;
+                <button @click="modifyById(article.id)">修改</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <div>
+        <button @click="addArticle">发布新文章</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button @click="deleteSelected">删除选中文章</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+</div>
+
+<script>
+    let projectRoot = '[[@{/}]]'
+
+    Vue.createApp({
+        data() {
+            return {
+                articles: []
+            }
+        },
+        methods: {
+            async queryHot() {
+                let response = await axios.get(projectRoot + "article/hot")
+                this.articles = response.data
+            },
+            queryById(articleId) {
+                window.location.href = projectRoot + "article/query/" + articleId
+            },
+            modifyById(articleId) {
+                window.location.href = projectRoot + "article/modify/" + articleId
+            },
+            addArticle() {
+                window.location.href = projectRoot + "article/add"
+            },
+            deleteSelected() {
+                if (confirm("确认要删除吗?")) {
+                    this.articles.forEach((article, index) => {
+                        if (article.checked) {
+                            axios.delete(projectRoot + "article/" + article.id)
+                        }
+                    })
+                    window.location.href = projectRoot
+                }
+            }
+        },
+        mounted() {
+            this.queryHot()
+        }
+    }).mount("#app")
+</script>
+</body>
+</html>

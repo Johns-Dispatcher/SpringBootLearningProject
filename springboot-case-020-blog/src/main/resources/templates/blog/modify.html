@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改文章</title>
+    <style>
+        .div-main {
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+
+        .div-main table {
+            margin: auto;
+            width: 90%;
+        }
+
+        .div-main table th, td {
+            padding: 5px 10px;
+        }
+    </style>
+    <script th:src="@{/static/js/vue.3.4.27.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+</head>
+<body>
+<div class="div-main" id="app">
+    <h1>修改文章</h1>
+    <hr>
+    <form>
+        <table>
+            <tr>
+                <td>文章ID</td>
+                <td>{{article.id}}</td>
+            </tr>
+            <tr>
+                <td>用户ID</td>
+                <td>{{article.userId}}</td>
+            </tr>
+            <tr>
+                <td>文章标题</td>
+                <td>
+                    <label>
+                        <input type="text" v-model="article.title">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>文章副标题</td>
+                <td>
+                    <label>
+                        <input type="text" v-model="article.summary">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>文章详情</td>
+                <td>
+                    <label>
+                        <textarea v-model.lazy="article.articleDetail.content" rows="5" cols="50"></textarea>
+                    </label>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br><br>
+    <button @click="modify">提交修改数据</button>
+    <br><br>
+    <a th:href="@{/}">返回</a>
+</div>
+<script>
+    let projectRoot = '[[@{/}]]'
+
+    Vue.createApp({
+        data() {
+            return {
+                id: [[${articleId}]],
+                article: {
+                    articleDetail: {}
+                }
+            }
+        },
+        methods: {
+            async query() {
+                let response = await axios.get(projectRoot + "article/" + this.id)
+                this.article = response.data
+            },
+            async modify() {
+                await axios.put(projectRoot + "article/" + this.id, this.article)
+                window.location.href = projectRoot
+            }
+        },
+        mounted() {
+            this.query()
+        }
+    }).mount("#app")
+</script>
+</body>
+</html>
