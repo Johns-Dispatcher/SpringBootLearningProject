@@ -84,7 +84,7 @@
                 this.article = response.data
             },
             async modify() {
-                await axios.put(projectRoot + "article/" + this.id, {
+                await axios.put(projectRoot + "article/", {
                     id: this.article.id,
                     userId: this.article.userId,
                     title: this.article.title,

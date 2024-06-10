@@ -50,10 +50,10 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public int modifyById(Integer id, ArticleParam articleParam) {
+    public int modifyById(ArticleParam articleParam) {
         ArticlePO articlePO = new ArticlePO();
 
-        articlePO.setId(id);
+        articlePO.setId(articleParam.getId());
         articlePO.setUserId(articleParam.getUserId());
         articlePO.setTitle(articleParam.getTitle());
         articlePO.setSummary(articleParam.getSummary());
@@ -63,7 +63,7 @@ public class ArticleServiceImpl implements ArticleService {
 
         ArticleDetailPO articleDetailPO = new ArticleDetailPO();
 
-        articleDetailPO.setArticleId(id);
+        articleDetailPO.setArticleId(articleParam.getId());
         articleDetailPO.setContent(articleParam.getContent());
 
         count += articleDetailMapper.modifyArticleDetail(articleDetailPO);

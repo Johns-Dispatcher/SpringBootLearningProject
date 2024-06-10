@@ -37,7 +37,7 @@ public class ArticleController {
      *
      * @return 文章列表
      */
-    @GetMapping("/hot")
+    @GetMapping("/")
     public List<ArticleVO> showHotArticle() {
         List<ArticlePO> articles = articleService.queryTopArticle();
         return BeanUtil.copyToList(articles, ArticleVO.class);
@@ -58,19 +58,16 @@ public class ArticleController {
     /**
      * 用于修改文章详细信息
      *
-     * @param id        文章ID
      * @param articleParam 请求体携带的数据
      * @return 数据库更新记录
      */
-    @PutMapping("/{id}")
+    @PutMapping("/")
     public int modifyById(
-            @PathVariable
-            Integer id,
             @Validated(ArticleParam.EditArticle.class)
             @RequestBody
             ArticleParam articleParam
     ) {
-        return articleService.modifyById(id, articleParam);
+        return articleService.modifyById(articleParam);
     }
 
     /**

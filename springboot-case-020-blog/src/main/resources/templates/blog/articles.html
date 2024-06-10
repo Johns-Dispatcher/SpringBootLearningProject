@@ -78,7 +78,7 @@
         },
         methods: {
             async queryHot() {
-                let response = await axios.get(projectRoot + "article/hot")
+                let response = await axios.get(projectRoot + "article/")
                 this.articles = response.data
             },
             queryById(articleId) {

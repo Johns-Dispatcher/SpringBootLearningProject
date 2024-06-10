@@ -37,11 +37,10 @@ public interface ArticleService {
     /**
      * 修改指定文章
      *
-     * @param id        文章ID
      * @param articleParam 文章对象
      * @return 数据库更新条数
      */
-    int modifyById(Integer id, ArticleParam articleParam);
+    int modifyById(ArticleParam articleParam);
 
     /**
      * 发布新文章
