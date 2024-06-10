@@ -1,0 +1,8 @@
+# thymeleaf 相关设置
+# 一般默认即可
+spring:
+  thymeleaf:
+    prefix: classpath:/temples/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML
