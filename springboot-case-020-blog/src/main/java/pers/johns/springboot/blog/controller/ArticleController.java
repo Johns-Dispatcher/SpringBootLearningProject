@@ -4,7 +4,9 @@ import cn.hutool.core.bean.BeanUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import pers.johns.springboot.blog.model.param.ArticleParam;
 import pers.johns.springboot.blog.model.po.ArticlePO;
 import pers.johns.springboot.blog.model.vo.ArticleVO;
 import pers.johns.springboot.blog.service.ArticleService;
@@ -57,23 +59,33 @@ public class ArticleController {
      * 用于修改文章详细信息
      *
      * @param id        文章ID
-     * @param articleVO 请求体携带的数据
+     * @param articleParam 请求体携带的数据
      * @return 数据库更新记录
      */
     @PutMapping("/{id}")
-    public int modifyById(@PathVariable Integer id, @RequestBody ArticleVO articleVO) {
-        return articleService.modifyById(id, articleVO);
+    public int modifyById(
+            @PathVariable
+            Integer id,
+            @Validated(ArticleParam.EditArticle.class)
+            @RequestBody
+            ArticleParam articleParam
+    ) {
+        return articleService.modifyById(id, articleParam);
     }
 
     /**
      * 用于发布新文章
      *
-     * @param articleVO 请求体携带的数据
+     * @param articleParam 请求体携带的数据
      * @return 数据库更新记录
      */
     @PostMapping("/")
-    public int postArticle(@RequestBody ArticleVO articleVO) {
-        return articleService.postArticle(articleVO);
+    public int postArticle(
+            @Validated(ArticleParam.AddArticle.class)
+            @RequestBody
+            ArticleParam articleParam
+    ) {
+        return articleService.postArticle(articleParam);
     }
 
     /**

@@ -43,7 +43,7 @@ public interface ArticleDetailMapper {
     @Update("""
             update article_detail \
             set content = #{content} \
-            where id = #{id}
+            where article_id = #{articleId}
             """)
     int modifyArticleDetail(ArticleDetailPO articleDetailPO);
 

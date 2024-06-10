@@ -84,7 +84,13 @@
                 this.article = response.data
             },
             async modify() {
-                await axios.put(projectRoot + "article/" + this.id, this.article)
+                await axios.put(projectRoot + "article/" + this.id, {
+                    id: this.article.id,
+                    userId: this.article.userId,
+                    title: this.article.title,
+                    summary: this.article.summary,
+                    content: this.article.articleDetail.content
+                })
                 window.location.href = projectRoot
             }
         },

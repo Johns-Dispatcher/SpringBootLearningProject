@@ -1,5 +1,6 @@
 package pers.johns.springboot.blog.service;
 
+import pers.johns.springboot.blog.model.param.ArticleParam;
 import pers.johns.springboot.blog.model.po.ArticlePO;
 import pers.johns.springboot.blog.model.vo.ArticleVO;
 
@@ -37,18 +38,18 @@ public interface ArticleService {
      * 修改指定文章
      *
      * @param id        文章ID
-     * @param articleVO 文章对象
+     * @param articleParam 文章对象
      * @return 数据库更新条数
      */
-    int modifyById(Integer id, ArticleVO articleVO);
+    int modifyById(Integer id, ArticleParam articleParam);
 
     /**
      * 发布新文章
      *
-     * @param articleVO 文章对象
+     * @param articleParam 文章对象
      * @return 数据库更新条数
      */
-    int postArticle(ArticleVO articleVO);
+    int postArticle(ArticleParam articleParam);
 
     /**
      * 删除指定文章

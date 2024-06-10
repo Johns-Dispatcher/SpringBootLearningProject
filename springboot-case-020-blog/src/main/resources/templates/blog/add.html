@@ -84,7 +84,12 @@
         },
         methods: {
             async postArticle() {
-                await axios.post(projectRoot + "article/", this.article)
+                await axios.post(projectRoot + "article/", {
+                    userId: this.article.userId,
+                    title: this.article.title,
+                    summary: this.article.summary,
+                    content: this.article.articleDetail.content
+                })
                 window.location.href = projectRoot
             }
         }

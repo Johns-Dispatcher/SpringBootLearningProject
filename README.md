@@ -99,3 +99,10 @@ https://www.bilibili.com/video/BV1Km4y1k7bn/
 - 使用 `@HttpExchange` 相关注解进行远程访问请求设置
 - 配置请求接口的代理对象，通过 `WebClient` 和 `HttpServiceProxyFactory` 创建代理对象
 - 通过对 `HttpConfig` 对象和 `WebClient` 对象设置完成自定义的远程访问设置
+
+#### [springboot-case-020-blog](springboot-case-020-blog) | 综合练习项目
+
+- 模板技术使用 `Thymeleaf`
+- 结合 `Vue` 完成动态数据展示（有些位置实现的有些抽象，主要是练习使用）
+- 使用 `axios` 完成AJAX请求
+- 通过发送AJAX请求获取数据库数据，完成CRUD操作
