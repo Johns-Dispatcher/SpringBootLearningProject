@@ -107,3 +107,4 @@ https://www.bilibili.com/video/BV1Km4y1k7bn/
 - 结合 `Vue3` 完成动态数据展示（有些位置实现的有些抽象，主要是练习使用）
 - 使用 `axios` 完成AJAX请求
 - 通过发送AJAX请求获取数据库数据，完成CRUD操作
+- 使用RestFul请求风格进行AJAX请求

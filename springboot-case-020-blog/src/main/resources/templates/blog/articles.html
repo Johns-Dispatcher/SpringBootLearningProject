@@ -21,6 +21,10 @@
             border-collapse: collapse;
             padding: 5px 10px;
         }
+
+        .td-center {
+            text-align: center;
+        }
     </style>
     <script th:src="@{/static/js/vue.3.4.27.js}"></script>
     <script th:src="@{/static/js/axios.min.js}"></script>
@@ -44,7 +48,7 @@
         </thead>
         <tbody>
         <tr v-for="(article, index) in articles" :key="article.id">
-            <td>
+            <td class="td-center">
                 <input type="checkbox" v-model="article.checked">
             </td>
             <td>{{index + 1}}</td>
@@ -53,7 +57,7 @@
             <td>{{article.readCount}}</td>
             <td>{{article.createTime}}</td>
             <td>{{article.updateTime}}</td>
-            <td>
+            <td class="td-center">
                 <button @click="queryById(article.id)">查看</button>&nbsp;
                 <button @click="modifyById(article.id)">修改</button>
             </td>
